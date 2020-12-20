@@ -34,8 +34,8 @@ namespace Enhance
       (byte) 97,
       (byte) 195
     };
-    private const int SEND_PACKET_ADDRESS = 7493376;
-        private const int RBA = 13067820;
+    private const int SEND_PACKET_ADDRESS = 8493632; //PacketSender
+        private const int RBA = 14959780; //RealBaseAddres
     private Memory Mem;
     private int OpcodeAddr;
 
@@ -49,8 +49,8 @@ namespace Enhance
     {
       int address = this.Mem.Allocate(4);
       this.Mem.Write(address, (object) this.Opcode);
-      this.Mem.Write(address + 2, (object)7493376, true);
-      this.Mem.Write(address + 8, (object)13067820, true);
+      this.Mem.Write(address + 2, (object)8493632, true); //PacketSender
+      this.Mem.Write(address + 8, (object)14959780, true); //RealBaseAddress
       return address;
     }
 
