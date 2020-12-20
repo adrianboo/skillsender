@@ -43,7 +43,7 @@ namespace Enhance
     private static IntPtr AttachProcess(int index)
     {
       IntPtr zero = IntPtr.Zero;
-      return MemFunctions.OpenProcess(Process.GetProcessesByName("elementclient")[index].Id);
+      return MemFunctions.OpenProcess(Process.GetProcessesByName("elementclient")[index].Id); //GetProcessName you can change it for the .exe process of your elementclient
     }
 
     private static bool CompareMatch(string match, uint UID)
