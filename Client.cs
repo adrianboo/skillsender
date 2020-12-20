@@ -4,7 +4,7 @@ namespace Enhance
 {
   internal class Client
   {
-    private const int RBA = 13067820;
+    private const int RBA = 14959780; //Here is the $RealBaseAddress
     private IntPtr pHandle;
     private Memory Mem;
     private PacketSender pSender;
@@ -16,7 +16,7 @@ namespace Enhance
     {
       get
       {
-        return this.Mem.ReadInt32(this.Mem.ReadInt32(13085644) + 44);
+        return this.Mem.ReadInt32(this.Mem.ReadInt32(14959780) + 28); //GamePointer
       }
     }
 
@@ -24,7 +24,7 @@ namespace Enhance
     {
       get
       {
-        return this.Mem.ReadInt32(this.GamePtr + 48);
+        return this.Mem.ReadInt32(this.GamePtr + 52); //CharPointer
       }
     }
 
@@ -32,7 +32,7 @@ namespace Enhance
     {
       get
       {
-        return this.Mem.ReadInt32(this.CharPtr + 5040);
+        return this.Mem.ReadInt32(this.CharPtr + 5376); //ActionPointer
       }
     }
 
@@ -40,7 +40,7 @@ namespace Enhance
     {
       get
       {
-        return this.Mem.ReadUInt32(this.CharPtr + 1172);
+        return this.Mem.ReadUInt32(this.CharPtr + 1208); //UID
       }
     }
 
@@ -48,7 +48,7 @@ namespace Enhance
     {
       get
       {
-        return this.Mem.ReadUnicode(this.Mem.ReadInt32(this.CharPtr + 1712));
+        return this.Mem.ReadUnicode(this.Mem.ReadInt32(this.CharPtr + 1788)); //Name Offset
       }
     }
 
@@ -56,7 +56,7 @@ namespace Enhance
     {
       get
       {
-        return this.Mem.ReadInt32(this.ActionPtr + 48);
+        return this.Mem.ReadInt32(this.ActionPtr + 64); //QueuePointer
       }
     }
 
@@ -64,7 +64,7 @@ namespace Enhance
     {
       get
       {
-        return this.Mem.ReadInt32(this.QueuePtr + 12);
+        return this.Mem.ReadInt32(this.QueuePtr + 4);
       }
     }
 
@@ -72,7 +72,7 @@ namespace Enhance
     {
       get
       {
-        return this.Mem.ReadUInt32(this.Mem.ReadInt32(this.QueuePtr + 1868) + 8);
+        return this.Mem.ReadUInt32(this.Mem.ReadInt32(this.QueuePtr + 64) + 8);
       }
     }
 
@@ -112,7 +112,7 @@ namespace Enhance
     {
       get
       {
-        return this.Mem.ReadInt32(this.CharPtr + 5020);
+        return this.Mem.ReadInt32(this.CharPtr + 2016); //SkillPointer
       }
     }
 
@@ -120,7 +120,7 @@ namespace Enhance
     {
       get
       {
-        return (int) this.Mem.ReadByte(this.SkillPtr + 36) == 1;
+        return (int) this.Mem.ReadByte(this.SkillPtr + 24) == 1; //ChargingOffset
       }
     }
 
@@ -128,7 +128,7 @@ namespace Enhance
     {
       get
       {
-        return this.Mem.ReadInt32(this.SkillPtr + 16) > 0;
+        return this.Mem.ReadInt32(this.SkillPtr + 16) > 0; //CurrentSkillCooldownOffset
       }
     }
 
@@ -152,7 +152,7 @@ namespace Enhance
     {
       get
       {
-        int num1 = this.Mem.ReadInt32(this.Mem.ReadInt32(13085644) + 24);
+        int num1 = this.Mem.ReadInt32(this.Mem.ReadInt32(14959780) + 24); //ProtectionSettings
         if ((int) (byte) this.Mem.ReadInt32(num1 + 642) == 0)
           return 0;
         byte num2 = 1;
